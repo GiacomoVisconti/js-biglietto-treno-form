@@ -44,6 +44,7 @@
     const user_km_El = document.getElementById('user_km_trip')
     const user_age_El = document.getElementById('user_age')
     const button_sub_El = document.getElementById('btn_submit_data')
+    const btn_reset_data_El = document.getElementById('btn_reset_data')
     const form_El = document.querySelector('form')
 
     form_El.addEventListener('submit', (e) => {
@@ -59,14 +60,21 @@
         const user_age_value = user_age_El.value 
         const user_km_value = user_km_El.value
         const user_name_value = user_name_El.value
-        const 
+        const ticket_price_value = ticket_price_calculator(user_km_value, user_age_value);
         
 
-        console.log(user_age_value, user_km_value, user_name_value);
+        console.log(user_age_value, user_km_value, user_name_value, ticket_price_value);
         
-
-
-
+        
+    })
+    
+    btn_reset_data_El.addEventListener('click', () => {
+        user_age_value = "";
+        user_km_value = "";
+        user_name_value = "";
+        ticket_price_value = "";
+        location.reload();
+        
     })
 
 
