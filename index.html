@@ -17,20 +17,24 @@
         <form>
             <div class="m-3">
                 <label for="user_full_name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="user_full_name" placeholder="Nome Cognome">
+                <input type="text" class="form-control" id="user_full_name" placeholder="Nome Cognome" value="">
             </div>
             <div class="m-3">
                 <label for="user_km_trip" class="form-label">Trip km</label>
-                <input type="number" class="form-control" id="user_km_trip" placeholder="Insert the km of your Trip">
+                <input type="number" class="form-control" id="user_km_trip" placeholder="Insert the km of your Trip"
+                    value="">
             </div>
             <div class="m-3">
-                <label for="" class="form-label">Select your age</label>
+                <label for="user_age" class="form-label">Select your age</label>
                 <select class="form-select" aria-label="Default select example" id="user_age">
-                    <option selected>Select an option</option>
+                    <option selected value="">Select an option</option>
                     <option value="1">Minorenne</option>
                     <option value="2">Maggiorenne</option>
                     <option value="3">Over 65</option>
                 </select>
+            </div>
+            <div class="m-3">
+                <button id="btn_submit_data" type="submit" class="btn btn-primary">Send data</button>
             </div>
         </form>
 
