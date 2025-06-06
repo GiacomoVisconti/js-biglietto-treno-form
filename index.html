@@ -15,10 +15,18 @@
 <body class="bg-danger p-5">
     <main>
         <div class="container">
-            <div class="row">
+
+            <!-- *DATA INPUT FORM -->
+            <div class="row my-3">
+
+                <!-- DATA INPUT FORM TITLE -->
                 <h2 class="text-center text-light">CALCOLA IL PREZZO DEL TUO BIGLIETTO</h2>
-                <div class="col-12 bg-light rounded p-2 ">
+
+                <!-- FORM -->
+                <div class="col-12 bg-light rounded p-2 shadow">
                     <form class="d-flex">
+
+                        <!-- FULL NAME INPUT -->
                         <div class="col-4 p-2 text-center text-danger">
 
                             <label for="user_full_name" class="form-label">Full Name</label>
@@ -26,6 +34,8 @@
                                 placeholder="Nome Cognome" value="">
 
                         </div>
+
+                        <!-- TRIP KM INPUT -->
                         <div class="col-4 p-2 text-center text-danger">
 
                             <label for="user_km_trip" class="form-label">Trip km</label>
@@ -33,6 +43,8 @@
                                 placeholder="Insert the km of your Trip" value="">
 
                         </div>
+
+                        <!-- AGE SELECT -->
                         <div class="col-4 p-2 text-center text-danger">
 
                             <label for="user_age" class="form-label">Select your age</label>
@@ -47,6 +59,8 @@
                         </div>
 
                     </form>
+
+                    <!-- BUTTONS -->
                     <div class="m-3 d-flex justify-content-center">
                         <button id="btn_submit_data" type="submit"
                             class="btn btn-secondary text-danger m-1">Genera</button>
@@ -55,6 +69,50 @@
                     </div>
 
                 </div>
+            </div>
+
+            <!-- PASSENGER INFO -->
+            <div class="row my-5">
+
+                <!-- PASSENGER INFO TITLE -->
+                <h2 class="text-center text-light">IL TUO BIGLIETTO</h2>
+
+                <!-- TICKET DETAILS -->
+                <div class="col-12 bg-light p-2">
+                    <div class="p-2">
+                        <h5>DETTAGLIO BIGLIETTI</h5>
+                        <div class="col-12 d-flex">
+
+                            <!-- PASSENGER PART  -->
+                            <div class="col-4 bg-secondary p-2">
+                                <h6>NOME PASSEGGERO</h6>
+                                <p class="passenger_name"></p>
+                            </div>
+
+                            <!-- OFFER PART -->
+                            <div class="col-8 d-flex border-top border-bottom border-dark">
+                                <div class="col-4 p-2">
+                                    <b>Offerta</b>
+                                    <p class="ticket_type"></p>
+                                </div>
+                                <div class="col-3 p-2">
+                                    <b>Carrozza</b>
+                                    <p class="sit_number"></p>
+                                </div>
+                                <div class="col-3 p-2">
+                                    <b>Codice CP</b>
+                                    <p class="cp_code"></p>
+                                </div>
+                                <div class="col-3 p-2">
+                                    <b>Costo biglietto</b>
+                                    <p class="ticket_price"></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
