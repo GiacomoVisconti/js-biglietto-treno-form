@@ -82,6 +82,7 @@
         let ticket_price_value = ticket_price_calculator(user_km_value, user_age_value);
         ticket_price_value = ticket_price_value.toLocaleString("en-US", {style:"currency", currency:"EUR"})
         const output_cp_code_value = random_numeber(9000, 10000)
+        const output_sit_number_value = random_numeber(1,12)
         
 
         console.log(user_age_value, user_km_value, user_name_value, ticket_price_value);
@@ -90,7 +91,7 @@
 
         output_user_name_El.innerHTML = user_name_value;
         output_ticket_type_El.innerHTML = 'Biglietto Standard';
-        output_sit_number_El.innerHTML = '5';
+        output_sit_number_El.innerHTML = output_sit_number_value;
         output_cp_code_El.innerHTML = output_cp_code_value;
         output_ticket_price_El.innerHTML = ticket_price_value
 
