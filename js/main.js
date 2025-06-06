@@ -39,7 +39,8 @@
 // !END FUNCTION
 
 // Il programma dovrà chiedere all'utente il numero di chilometri che vuole percorrere e l'età del passeggero
-    //dichiaro le variabili per l'età e i km e ne prendo il dato dal form
+
+    //Input part variables
     const user_name_El = document.getElementById("user_full_name")
     const user_km_El = document.getElementById('user_km_trip')
     const user_age_El = document.getElementById('user_age')
@@ -47,15 +48,19 @@
     const btn_reset_data_El = document.getElementById('btn_reset_data')
     const form_El = document.querySelector('form')
 
+    //Output part variables
+    const output_user_name_El = document.querySelector('.passenger_name');
+    const output_ticket_type_El = document.querySelector('.ticket_type');
+    const output_sit_number_El = document.querySelector('.sit_number');
+    const output_cp_code_El = document.querySelector('.cp_code');
+    const output_ticket_price_El = document.querySelector('.ticket_price');
+
     form_El.addEventListener('submit', (e) => {
         //Disable the reload of the page
         e.preventDefault();
     })
 
     button_sub_El.addEventListener('click', () => {
-        
-        console.log('ciao');
-
         //Declaring the constants for the input datas
         const user_age_value = user_age_El.value 
         const user_km_value = user_km_El.value
@@ -64,15 +69,23 @@
         
 
         console.log(user_age_value, user_km_value, user_name_value, ticket_price_value);
+
+        output_user_name_El.innerHTML = user_name_value;
+        output_ticket_type_El.innerHTML = 'Biglietto Standard';
+        output_sit_number_El.innerHTML = '5';
+        output_cp_code_El.innerHTML = '92911';
+        output_ticket_price_El.innerHTML = ticket_price_value.toLocaleString("en-US", {style:"currency", currency:"EUR"})
+
+
+        
+
+
         
         
     })
     
     btn_reset_data_El.addEventListener('click', () => {
-        user_age_value = "";
-        user_km_value = "";
-        user_name_value = "";
-        ticket_price_value = "";
+    
         location.reload();
         
     })

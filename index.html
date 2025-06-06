@@ -24,13 +24,13 @@
 
                 <!-- FORM -->
                 <div class="col-12 bg-light rounded p-2 shadow">
-                    <form class="d-flex">
+                    <form class="d-flex px-5">
 
                         <!-- FULL NAME INPUT -->
                         <div class="col-4 p-2 text-center text-danger">
 
                             <label for="user_full_name" class="form-label">Full Name</label>
-                            <input type="text" class="form-control border-danger-subtle" id="user_full_name"
+                            <input type="text" class="form-control border-danger-subtle text-center" id="user_full_name"
                                 placeholder="Nome Cognome" value="">
 
                         </div>
@@ -39,7 +39,7 @@
                         <div class="col-4 p-2 text-center text-danger">
 
                             <label for="user_km_trip" class="form-label">Trip km</label>
-                            <input type="number" class="form-control border-danger-subtle" id="user_km_trip"
+                            <input type="number" class="form-control border-danger-subtle text-center" id="user_km_trip"
                                 placeholder="Insert the km of your Trip" value="">
 
                         </div>
@@ -48,12 +48,12 @@
                         <div class="col-4 p-2 text-center text-danger">
 
                             <label for="user_age" class="form-label">Select your age</label>
-                            <select class="form-select border-danger-subtle" aria-label="Default select example"
-                                id="user_age">
+                            <select class="form-select border-danger-subtle text-center"
+                                aria-label="Default select example" id="user_age">
                                 <option selected value="">Select an option</option>
-                                <option value="1">Minorenne</option>
-                                <option value="2">Maggiorenne</option>
-                                <option value="3">Over 65</option>
+                                <option value="1">Minorenne (0 - 17)</option>
+                                <option value="2">Maggiorenne (18 - 65)</option>
+                                <option value="3">Over 65 (66 ->)</option>
                             </select>
 
                         </div>
@@ -91,21 +91,21 @@
 
                             <!-- OFFER PART -->
                             <div class="col-8 d-flex border-top border-bottom border-dark">
-                                <div class="col-4 p-2">
+                                <div class="col-3 p-2 d-flex flex-column justify-content-between">
                                     <b>Offerta</b>
                                     <p class="ticket_type"></p>
                                 </div>
-                                <div class="col-3 p-2">
+                                <div class="col-3 p-2 d-flex flex-column justify-content-between">
                                     <b>Carrozza</b>
                                     <p class="sit_number"></p>
                                 </div>
-                                <div class="col-3 p-2">
+                                <div class="col-3 p-2 d-flex flex-column justify-content-between">
                                     <b>Codice CP</b>
                                     <p class="cp_code"></p>
                                 </div>
-                                <div class="col-3 p-2">
+                                <div class="col-4 p-2 d-flex flex-column justify-content-between">
                                     <b>Costo biglietto</b>
-                                    <p class="ticket_price"></p>
+                                    <p class="ticket_price fs-3 fw-medium"></p>
                                 </div>
 
                             </div>
