@@ -1,5 +1,5 @@
 // !FUNCTION
- // il prezzo del biglietto è definito in base ai km (0.21 € al km) e ne dichiaro la variabile 
+
     /**
      * ### This function returns the price of a ticket {number}.
      * - the parameter "user_age" is a selection between options identified by numbers:
@@ -13,6 +13,8 @@
 
         const price_for_km  = 0.21
         let ticket_price = user_km * price_for_km
+        
+
 
         if(user_age == 1){
 
@@ -21,6 +23,7 @@
     
             // L'output 
             return ticket_price
+            
             
         }else if(user_age == 3){
     
@@ -34,6 +37,16 @@
             // L'output 
             return ticket_price
         }
+    }
+
+    /**
+     * This functions returns a ramndom number between a min and max
+     * @param {number} min 
+     * @param {number} max 
+     * @returns 
+     */
+    function random_numeber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
 
 // !END FUNCTION
@@ -68,6 +81,7 @@
         const user_name_value = user_name_El.value
         let ticket_price_value = ticket_price_calculator(user_km_value, user_age_value);
         ticket_price_value = ticket_price_value.toLocaleString("en-US", {style:"currency", currency:"EUR"})
+        const output_cp_code_value = random_numeber(9000, 10000)
         
 
         console.log(user_age_value, user_km_value, user_name_value, ticket_price_value);
@@ -77,7 +91,7 @@
         output_user_name_El.innerHTML = user_name_value;
         output_ticket_type_El.innerHTML = 'Biglietto Standard';
         output_sit_number_El.innerHTML = '5';
-        output_cp_code_El.innerHTML = '92911';
+        output_cp_code_El.innerHTML = output_cp_code_value;
         output_ticket_price_El.innerHTML = ticket_price_value
 
 
