@@ -31,7 +31,7 @@
 
                             <label for="user_full_name" class="form-label">Full Name</label>
                             <input type="text" class="form-control border-danger-subtle text-center" id="user_full_name"
-                                placeholder="Nome Cognome" value="">
+                                placeholder="Nome Cognome" value="" required>
 
                         </div>
 
@@ -40,7 +40,7 @@
 
                             <label for="user_km_trip" class="form-label">Trip km</label>
                             <input type="number" class="form-control border-danger-subtle text-center" id="user_km_trip"
-                                placeholder="Insert the km of your Trip" value="">
+                                placeholder="Insert the km of your Trip" value="" required>
 
                         </div>
 
@@ -49,7 +49,7 @@
 
                             <label for="user_age" class="form-label">Select your age</label>
                             <select class="form-select border-danger-subtle text-center"
-                                aria-label="Default select example" id="user_age">
+                                aria-label="Default select example" id="user_age" required>
                                 <option selected value="">Select an option</option>
                                 <option value="1">Minorenne (0 - 17)</option>
                                 <option value="2">Maggiorenne (18 - 65)</option>
@@ -72,7 +72,7 @@
             </div>
 
             <!-- PASSENGER INFO -->
-            <div class="row my-5">
+            <div class="row my-5 d-none" id="passenger_info_card">
 
                 <!-- PASSENGER INFO TITLE -->
                 <h2 class="text-center text-light">IL TUO BIGLIETTO</h2>

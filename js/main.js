@@ -49,6 +49,7 @@
     const form_El = document.querySelector('form')
 
     //Output part variables
+    const output_data_passenger_El = document.getElementById('passenger_info_card')
     const output_user_name_El = document.querySelector('.passenger_name');
     const output_ticket_type_El = document.querySelector('.ticket_type');
     const output_sit_number_El = document.querySelector('.sit_number');
@@ -65,16 +66,19 @@
         const user_age_value = user_age_El.value 
         const user_km_value = user_km_El.value
         const user_name_value = user_name_El.value
-        const ticket_price_value = ticket_price_calculator(user_km_value, user_age_value);
+        let ticket_price_value = ticket_price_calculator(user_km_value, user_age_value);
+        ticket_price_value = ticket_price_value.toLocaleString("en-US", {style:"currency", currency:"EUR"})
         
 
         console.log(user_age_value, user_km_value, user_name_value, ticket_price_value);
+
+        output_data_passenger_El.classList.toggle('d-none')
 
         output_user_name_El.innerHTML = user_name_value;
         output_ticket_type_El.innerHTML = 'Biglietto Standard';
         output_sit_number_El.innerHTML = '5';
         output_cp_code_El.innerHTML = '92911';
-        output_ticket_price_El.innerHTML = ticket_price_value.toLocaleString("en-US", {style:"currency", currency:"EUR"})
+        output_ticket_price_El.innerHTML = ticket_price_value
 
 
         
