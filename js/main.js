@@ -3,20 +3,20 @@
     /**
      * ### This function returns the price of a ticket {number}.
      * - the parameter "user_age" is a selection between options identified by numbers:
-     *      - Minorenne = 1
-     *      - Maggiorenne = 2
-     *      - Over 65 = 3  
+     *      - Minorenne = 0
+     *      - Maggiorenne = 1
+     *      - Over 65 = 2  
      * @param {number} user_km 
      * @param {number} user_age 
      */
-    function ticket_price_calculator(user_km, user_age) {
+    function ticket_price_calculator(user_km, user_age, price_for_km) {
 
-        const price_for_km  = 0.21
+        
         let ticket_price = user_km * price_for_km
         
 
 
-        if(user_age == 1){
+        if(user_age == 0){
 
             // va applicato uno sconto del 20% per i minorenni (età < 18)
             ticket_price = ticket_price - (ticket_price * 0.2)
@@ -25,14 +25,14 @@
             return ticket_price
             
             
-        }else if(user_age == 3){
+        }else if(user_age == 2){
     
             // va applicato uno sconto del 40% per gli over 65. (età > 65)
             ticket_price = ticket_price - (ticket_price * 0.4)
     
             // L'output 
             return ticket_price
-        }else if (user_age == 2){
+        }else if (user_age == 1){
     
             // L'output 
             return ticket_price
@@ -45,7 +45,7 @@
      * @param {number} max 
      * @returns 
      */
-    function random_numeber(min, max) {
+    function random_number(min, max) {
         return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
 
@@ -69,21 +69,26 @@
     const output_cp_code_El = document.querySelector('.cp_code');
     const output_ticket_price_El = document.querySelector('.ticket_price');
 
-    form_El.addEventListener('submit', (e) => {
-        //Disable the reload of the page
-        e.preventDefault();
-    })
+    
 
-    button_sub_El.addEventListener('click', () => {
+    button_sub_El.addEventListener('click', (e) => {
         //Declaring the constants for the input datas
-        const user_age_value = user_age_El.value 
-        const user_km_value = user_km_El.value
+        const user_age_value = Number(user_age_El.value) 
+        const user_km_value = Number(user_km_El.value)
         const user_name_value = user_name_El.value
-        let ticket_price_value = ticket_price_calculator(user_km_value, user_age_value);
+        let ticket_price_value = ticket_price_calculator(user_km_value, user_age_value, 0.21);
+
+        if(!ticket_price_value){
+            console.log(user_age_value);
+            return
+            
+        }
+
         ticket_price_value = ticket_price_value.toLocaleString("en-US", {style:"currency", currency:"EUR"})
-        const output_cp_code_value = random_numeber(9000, 10000)
-        const output_sit_number_value = random_numeber(1,12)
-        
+        console.log(ticket_price_value);
+        const output_cp_code_value = random_number(9000, 10000)
+        const output_sit_number_value = random_number(1,12)
+        e.preventDefault();
 
         console.log(user_age_value, user_km_value, user_name_value, ticket_price_value);
 
