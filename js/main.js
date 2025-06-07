@@ -10,7 +10,7 @@
      * @param {number} user_age 
      * @param {number} price_for_km 
      */
-    function ticket_price_calculator(user_km, user_age, price_for_km) {
+    function ticket_generator(user_km, user_age, price_for_km) {
         let ticket_type_text = ""
         const discount = [0.2, 0, 0.4];
         const ticket_type = ['Biglietto Junior', 'Biglietto standard', 'Biglietto Senior']
@@ -91,7 +91,7 @@
         const user_age_value = Number(user_age_El.value) 
         const user_km_value = Number(user_km_El.value)
         const user_name_value = user_name_El.value
-        let ticket_function_result = ticket_price_calculator(user_km_value, user_age_value, 0.21);
+        const ticket_function_result = ticket_generator(user_km_value, user_age_value, 0.21);
         let ticket_price_value = ticket_function_result.ticket_price.toLocaleString("en-US", {style:"currency", currency:"EUR"})
         let ticket_type = ticket_function_result.ticket_type_text
 
