@@ -1,16 +1,19 @@
 // !FUNCTION
 
     /**
-     * ### This function returns the price of a ticket {number}.
+     * ### This function returns the price of a ticket {number} and the type of the ticket {string}.
      * - the parameter "user_age" is a selection between options identified by numbers:
      *      - Minorenne = 0
      *      - Maggiorenne = 1
      *      - Over 65 = 2  
      * @param {number} user_km 
      * @param {number} user_age 
+     * @param {number} price_for_km 
      */
     function ticket_price_calculator(user_km, user_age, price_for_km) {
-
+        let ticket_type_text = ""
+        const discount = [0.2, 0, 0.4];
+        const ticket_type = ['Biglietto Junior', 'Biglietto standard', 'Biglietto Senior']
         
         let ticket_price = user_km * price_for_km
         
@@ -19,23 +22,35 @@
         if(user_age == 0){
 
             // va applicato uno sconto del 20% per i minorenni (età < 18)
-            ticket_price = ticket_price - (ticket_price * 0.2)
-    
+            ticket_price = ticket_price - (ticket_price * discount[0])
+            ticket_type_text = ticket_type[0]
+            
             // L'output 
-            return ticket_price
+            return {
+                ticket_type_text : ticket_type_text,
+                ticket_price: ticket_price
+            };
             
             
         }else if(user_age == 2){
-    
+            
             // va applicato uno sconto del 40% per gli over 65. (età > 65)
-            ticket_price = ticket_price - (ticket_price * 0.4)
-    
+            ticket_price = ticket_price - (ticket_price * discount[2])
+            ticket_type_text = ticket_type[2]
+            
             // L'output 
-            return ticket_price
+            return {
+                ticket_type_text : ticket_type_text,
+                ticket_price: ticket_price
+            };
         }else if (user_age == 1){
-    
+            ticket_type_text = ticket_type[1]
+            
             // L'output 
-            return ticket_price
+            return {
+                ticket_type_text : ticket_type_text,
+                ticket_price: ticket_price
+            };
         }
     }
 
@@ -76,15 +91,15 @@
         const user_age_value = Number(user_age_El.value) 
         const user_km_value = Number(user_km_El.value)
         const user_name_value = user_name_El.value
-        let ticket_price_value = ticket_price_calculator(user_km_value, user_age_value, 0.21);
+        let ticket_function_result = ticket_price_calculator(user_km_value, user_age_value, 0.21);
+        let ticket_price_value = ticket_function_result.ticket_price.toLocaleString("en-US", {style:"currency", currency:"EUR"})
+        let ticket_type = ticket_function_result.ticket_type_text
 
         if(!ticket_price_value){
             console.log(user_age_value);
             return
-            
         }
 
-        ticket_price_value = ticket_price_value.toLocaleString("en-US", {style:"currency", currency:"EUR"})
         console.log(ticket_price_value);
         const output_cp_code_value = random_number(9000, 10000)
         const output_sit_number_value = random_number(1,12)
@@ -95,7 +110,7 @@
         output_data_passenger_El.classList.toggle('d-none')
 
         output_user_name_El.innerHTML = user_name_value;
-        output_ticket_type_El.innerHTML = 'Biglietto Standard';
+        output_ticket_type_El.innerHTML = ticket_type;
         output_sit_number_El.innerHTML = output_sit_number_value;
         output_cp_code_El.innerHTML = output_cp_code_value;
         output_ticket_price_El.innerHTML = ticket_price_value
