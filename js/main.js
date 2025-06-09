@@ -1,4 +1,4 @@
-// !FUNCTION
+// !FUNCTIONS
 
     /**
      * ### This function returns the price of a ticket {number} and the type of the ticket {string}.
@@ -22,8 +22,8 @@
         if(user_age == 0){
 
             // va applicato uno sconto del 20% per i minorenni (età < 18)
-            ticket_price = ticket_price - (ticket_price * discount[0])
-            ticket_type_text = ticket_type[0]
+            ticket_price = ticket_price - (ticket_price * discount[user_age])
+            ticket_type_text = ticket_type[user_age]
             
             // L'output 
             return {
@@ -35,8 +35,8 @@
         }else if(user_age == 2){
             
             // va applicato uno sconto del 40% per gli over 65. (età > 65)
-            ticket_price = ticket_price - (ticket_price * discount[2])
-            ticket_type_text = ticket_type[2]
+            ticket_price = ticket_price - (ticket_price * discount[user_age])
+            ticket_type_text = ticket_type[user_age]
             
             // L'output 
             return {
@@ -44,7 +44,7 @@
                 ticket_price: ticket_price
             };
         }else if (user_age == 1){
-            ticket_type_text = ticket_type[1]
+            ticket_type_text = ticket_type[user_age]
             
             // L'output 
             return {
@@ -64,9 +64,9 @@
         return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
 
-// !END FUNCTION
+// !END FUNCTIONS
 
-// Il programma dovrà chiedere all'utente il numero di chilometri che vuole percorrere e l'età del passeggero
+
 
     //Input part variables
     const user_name_El = document.getElementById("user_full_name")
@@ -85,7 +85,7 @@
     const output_ticket_price_El = document.querySelector('.ticket_price');
 
     
-
+    //At click event, get datas, run the functions and output the datas to the users.
     button_sub_El.addEventListener('click', (e) => {
         //Declaring the constants for the input datas
         const user_age_value = Number(user_age_El.value) 
@@ -101,14 +101,16 @@
         }
 
         console.log(ticket_price_value);
+
+        //Declaring the constants for the output datas
         const output_cp_code_value = random_number(9000, 10000)
         const output_sit_number_value = random_number(1,12)
         e.preventDefault();
 
         console.log(user_age_value, user_km_value, user_name_value, ticket_price_value);
-
         output_data_passenger_El.classList.toggle('d-none')
 
+        //Output datas
         output_user_name_El.innerHTML = user_name_value;
         output_ticket_type_El.innerHTML = ticket_type;
         output_sit_number_El.innerHTML = output_sit_number_value;
